@@ -11,27 +11,55 @@ public class FurniGunScript : MonoBehaviour
     public GameObject currentFurniBullet;
     public GameObject currentDecoBullet;
 
+    public GameObject[] furniBullets;
+    public GameObject[] paintBullets;
+    public GameObject[] floorBullets;
+    public GameObject[] demoBullets;
+
+    public int currentWeapon = 0;//0 - furni, 1 - paint, 2 - floors, 3 - demo
+    public int currentAmmo = 0;
+
     public float furniWeaponCoolDownTime = 1.0f;
 
     private float furniCurrentCoolDownTime = 0.0f;
     private bool furniWeaponFired = false;
 
-    public float decoWeaponCoolDownTime = 1.0f;
+    private int ammoTypes = 1;
 
-    private float decoCurrentCoolDownTime = 0.0f;
-    private bool decoWeaponFired = false;
+    private void Start()
+    {
+        ammoTypes = furniBullets.Length;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        //get current position and rotation of gun
+        Vector3 gunPos = transform.position;
+        Quaternion gunRot = transform.rotation;
+
         //check for player input of fire
         if (CrossPlatformInputManager.GetButtonDown("Fire1") && !furniWeaponFired)
         {
-            //spawn current furniture bullet
-            Vector3 gunPos = this.transform.position;
-            Quaternion gunRot = this.transform.rotation;
+            //based on weapon instantiate correct bullet
+            if (currentWeapon == 0)
+            {
+                Instantiate(furniBullets[currentAmmo], gunPos, gunRot);
+            }
+            else if (currentWeapon == 1)
+            {
+                Instantiate(paintBullets[currentAmmo], gunPos, gunRot);
+            }
+            else if (currentWeapon == 2)
+            {
+                Instantiate(floorBullets[currentAmmo], gunPos, gunRot);
+            }
+            else if (currentWeapon == 3)
+            {
+                Instantiate(demoBullets[currentAmmo], gunPos, gunRot);
+            }
 
-            GameObject furniObj = Instantiate(currentFurniBullet, gunPos, gunRot);
+            furniWeaponFired = true;
         }
 
         //check if weapon has been fired
@@ -40,39 +68,55 @@ public class FurniGunScript : MonoBehaviour
             furniCurrentCoolDownTime += Time.deltaTime;//increment time until next fire
 
             //if time is greater than cool down time reset weapon for fire
-            if(furniCurrentCoolDownTime >= furniWeaponCoolDownTime)
+            if (furniCurrentCoolDownTime >= furniWeaponCoolDownTime)
             {
-                furniWeaponFired = false;
-                furniCurrentCoolDownTime = 0.0f;
+                ResetFurniWeapon();
             }
         }
 
         //check for player input of fire
-        if (CrossPlatformInputManager.GetButtonDown("Fire2") && !decoWeaponFired)
+        if (Input.GetButtonDown("Fire2"))
         {
-            //spawn current furniture bullet
-            Vector3 gunPos = transform.position;
+            //swap between weapons
+            ResetFurniWeapon();
 
-            Quaternion rootRotation = transform.root.rotation;
-            Quaternion parentRotation = transform.parent.rotation;
+            currentWeapon++;
 
-            Quaternion gunRot = transform.rotation;
-            //Quaternion gunRot = transform.root.rotation;
+            if (currentWeapon > 3)
+                currentWeapon = 0;
 
-            GameObject bulletObj = Instantiate(currentDecoBullet, gunPos, gunRot);
-        }
+            currentAmmo = 0;
 
-        //check if weapon has been fired
-        if (decoWeaponFired)
-        {
-            decoCurrentCoolDownTime += Time.deltaTime;//increment time until next fire
-
-            //if time is greater than cool down time reset weapon for fire
-            if (decoCurrentCoolDownTime >= decoWeaponCoolDownTime)
+            if (currentWeapon == 0)
             {
-                decoWeaponFired = false;
-                decoCurrentCoolDownTime = 0.0f;
+                ammoTypes = furniBullets.Length;
+            }
+            else if (currentWeapon == 1)
+            {
+                ammoTypes = paintBullets.Length;
+            }
+            else if (currentWeapon == 2)
+            {
+                ammoTypes = floorBullets.Length;
+            }
+            else if (currentWeapon == 3)
+            {
+                ammoTypes = demoBullets.Length;
             }
         }
+
+        if (Input.GetKeyUp("left shift"))
+        {
+            currentAmmo++;
+
+            if (currentAmmo >= ammoTypes)
+                currentAmmo = 0;
+        }
+    }
+
+    private void ResetFurniWeapon()
+    {
+        furniWeaponFired = false;
+        furniCurrentCoolDownTime = 0.0f;
     }
 }

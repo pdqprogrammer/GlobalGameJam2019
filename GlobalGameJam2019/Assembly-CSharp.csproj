@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletScripts\BulletScript.cs" />
+    <Compile Include="Assets\Scripts\BulletScripts\DemolitionBulletScript.cs" />
     <Compile Include="Assets\Scripts\BulletScripts\FlooringBulletScript.cs" />
     <Compile Include="Assets\Scripts\BulletScripts\FurnitureBulletScript.cs" />
     <Compile Include="Assets\Scripts\BulletScripts\LightBulletScript.cs" />

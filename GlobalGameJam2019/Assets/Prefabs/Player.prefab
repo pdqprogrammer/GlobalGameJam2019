@@ -52,17 +52,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642310160}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c065f5efe78f9a4eba53d64f4ffd047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentFurniBullet: {fileID: 7689482403769459063, guid: d5f1c8390ccac8145822b5ba01237f4c,
     type: 3}
-  currentDecoBullet: {fileID: 336680456495470913, guid: e46b46b1d9d909f48a9f1a8c7691e0eb,
+  currentDecoBullet: {fileID: 1797054262, guid: 30e052b5f844bee44b74cf941036de16,
     type: 3}
+  furniBullets:
+  - {fileID: 7689482403769459063, guid: d5f1c8390ccac8145822b5ba01237f4c, type: 3}
+  - {fileID: 5526841605769296964, guid: 520c142537ad7c8408920834c7791aec, type: 3}
+  - {fileID: 7262152810309228958, guid: 839d4124ac5211041b4eca531931b470, type: 3}
+  paintBullets:
+  - {fileID: 336680456495470913, guid: e46b46b1d9d909f48a9f1a8c7691e0eb, type: 3}
+  - {fileID: 5301689044092523470, guid: 0aaa8fa3f14ffb34683a29929c649d8c, type: 3}
+  - {fileID: 6922845153555993254, guid: 71fb373890c20d541bf80697f480c64b, type: 3}
+  lightBullets:
+  - {fileID: 1995259716, guid: da47859504004914dae4295f845a65f0, type: 3}
+  floorBullets:
+  - {fileID: 1797054262, guid: 30e052b5f844bee44b74cf941036de16, type: 3}
+  - {fileID: 6461650777987184601, guid: cffb39b69e9dfc246a149bfb18f5601b, type: 3}
+  demoBullets:
+  - {fileID: 8356397764328312859, guid: 25d669418e488714ca3e366f87f29256, type: 3}
+  currentWeapon: 0
+  currentAmmo: 0
   furniWeaponCoolDownTime: 1
-  decoWeaponCoolDownTime: 1
 --- !u!1 &1093118205852324981
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6062833789597360987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 

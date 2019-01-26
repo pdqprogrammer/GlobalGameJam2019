@@ -34,7 +34,7 @@ public class PaintBulletScript : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Walls") || collision.gameObject.tag.Equals("Ceiling") || collision.gameObject.tag.Equals("Furniture"))
         {
-            collision.gameObject.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
+            collision.gameObject.GetComponent<Renderer>().material.color = paintColor;
         }
 
         Destroy(gameObject);
