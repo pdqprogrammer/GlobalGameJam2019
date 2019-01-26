@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControllerScript : MonoBehaviour
 {
+    public float playerSpeed = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -11,8 +13,17 @@ public class PlayerControllerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        //check for input
+        if(Input.GetAxis("Horizontal") != 0)
+        {
+
+        }
+
+        if(Input.GetAxis("Vertical") != 0)
+        {
+
+        }
     }
 }
