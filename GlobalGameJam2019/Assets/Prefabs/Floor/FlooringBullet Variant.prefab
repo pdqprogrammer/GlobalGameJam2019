@@ -69,6 +69,6 @@ PrefabInstance:
     - target: {fileID: 1797054263, guid: 30e052b5f844bee44b74cf941036de16, type: 3}
       propertyPath: flooringMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: b9f2116ed3a734a7fbd443757fad6430, type: 2}
+      objectReference: {fileID: 2100000, guid: 228f87cf739044f4091ad077a9397dd9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30e052b5f844bee44b74cf941036de16, type: 3}

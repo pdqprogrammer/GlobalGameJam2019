@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 1
-  flooringMaterial: {fileID: 2100000, guid: f86638950d9ea4beba0792b6d556c6f1, type: 2}
+  flooringMaterial: {fileID: 2100000, guid: cfc37600fdb17d04b83d5818937307a2, type: 2}
