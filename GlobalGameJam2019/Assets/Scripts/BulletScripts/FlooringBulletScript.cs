@@ -28,6 +28,9 @@ public class FlooringBulletScript : MonoBehaviour
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag.Equals("FloorContainer") || collision.gameObject.tag.Equals("Player"))
         {
+            Collider thisCollider = GetComponent<Collider>();
+
+            Physics.IgnoreCollision(collision.collider, thisCollider);
             return;
         }
 

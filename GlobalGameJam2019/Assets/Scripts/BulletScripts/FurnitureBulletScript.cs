@@ -16,6 +16,6 @@ public class FurnitureBulletScript : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
 
         //apply force to object when it is created
-        rb.AddForce(transform.forward * bulletSpeed * 10);    
+        rb.AddForce(transform.forward * bulletSpeed * -10);    
     }
 }

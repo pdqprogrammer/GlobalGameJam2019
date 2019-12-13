@@ -105,7 +105,7 @@ public class FurniGunScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp("left shift"))
+        if (Input.GetKeyUp("left shift") || Input.GetMouseButtonUp(2))
         {
             currentAmmo++;
 
@@ -118,5 +118,12 @@ public class FurniGunScript : MonoBehaviour
     {
         furniWeaponFired = false;
         furniCurrentCoolDownTime = 0.0f;
+    }
+
+    public int[] GetWeaponSettings()
+    {
+        int[] weaponSettings = { currentWeapon, currentAmmo };
+
+        return weaponSettings;
     }
 }

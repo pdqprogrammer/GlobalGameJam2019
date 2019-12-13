@@ -28,6 +28,8 @@ public class DecoHero : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+
         titleUI = GameObject.Find("Title");
         introUI = GameObject.Find("Instructions");
         inGameUI = GameObject.Find("InGame");
@@ -102,7 +104,7 @@ public class DecoHero : MonoBehaviour
         else
         {
             //check for specific input to complete game
-            if(Input.GetKeyDown("p"))
+            if(Input.GetKeyDown("enter") || Input.GetKeyDown("return"))
             {
                 gameState = GameState.Success;
                 EndGame();
@@ -113,8 +115,13 @@ public class DecoHero : MonoBehaviour
             {
                 //build out to eventually reset game state to a default state
                 //reset game on press
-                ResetGame();
+                //ResetGame();
             }
+        }
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
 

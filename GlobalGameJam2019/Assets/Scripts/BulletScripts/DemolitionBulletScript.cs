@@ -25,13 +25,17 @@ public class DemolitionBulletScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag.Equals("FloorContainer") || collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("FloorContainer") || collision.gameObject.tag.Equals("Player") || collision.gameObject.tag.Equals("FurniContainer"))
         {
+            Collider thisCollider = GetComponent<Collider>();
+
+            Physics.IgnoreCollision(collision.collider, thisCollider);
             return;
         }
 
         if (collision.gameObject.tag.Equals("Furniture"))
         {
+            Debug.Log("demo happened");
             Destroy(collision.gameObject);
         }
 
